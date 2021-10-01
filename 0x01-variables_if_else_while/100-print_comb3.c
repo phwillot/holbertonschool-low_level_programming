@@ -27,9 +27,9 @@ int main(void)
 			secondDigit++;
 		}
 
-	secondDigit = modifier;
-	modifier++;
-	firstDigit++;
+		secondDigit = modifier;
+		modifier++;
+		firstDigit++;
 	}
 
 	putchar('\n');
