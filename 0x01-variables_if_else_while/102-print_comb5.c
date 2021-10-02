@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+/**
+  * main - Entry point
+  *
+  * Description: Prints all possible combinasation of two-digit numbers
+  *
+  * Return: Always 0 (Success)
+  *
+  */
+
+int main(void)
+{
+	int a = 48, b = 48, c = 48, d = 49, ct1 = 48;
+
+	while (a < 58 && b < 58)
+	{
+		while (c < 58 && d < 58)
+		{
+			putchar(a);
+			putchar(b);
+			putchar(' ');
+			putchar(c);
+			putchar(d);
+			putchar(',');
+			putchar(' ');
+			if (d != 57)
+				d++;
+			else
+			{
+				d = 48;
+				c++;
+			}
+		}
+		c = ct1;
+		d = b + 2;
+		if (b == 56)
+		{
+			ct1++;
+			c = ct1;
+			d = 48;
+		}
+		if (b == 57)
+		{
+			b = 47;
+			c = ct1;
+			d = 49;
+			a++;
+		}
+		b++;
+	}
+	putchar('\n');
+	return (0);
+}
