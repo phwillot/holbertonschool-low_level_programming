@@ -27,11 +27,7 @@ int main(void)
 				putchar(',');
 				putchar(' ');
 			}
-			if (d == 57)
-				c++;
-			if (d == 57)
-				d = 48;
-			d++;
+			d == 57 ? d = 48, c++ : d++;
 		}
 		c = ct1;
 		d = b + 2;
