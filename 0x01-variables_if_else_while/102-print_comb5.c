@@ -22,8 +22,11 @@ int main(void)
 			putchar(' ');
 			putchar(c);
 			putchar(d);
-			putchar(',');
-			putchar(' ');
+			if (a != 57 || b != 56)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 			if (d != 57)
 				d++;
 			else
@@ -36,8 +39,7 @@ int main(void)
 		d = b + 2;
 		if (b == 56)
 		{
-			ct1++;
-			c = ct1;
+			c = ++ct1;
 			d = 48;
 		}
 		if (b == 57)
