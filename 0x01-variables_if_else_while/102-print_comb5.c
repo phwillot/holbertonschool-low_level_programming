@@ -27,13 +27,11 @@ int main(void)
 				putchar(',');
 				putchar(' ');
 			}
-			if (d != 57)
-				d++;
-			else
-			{
-				d = 48;
+			if (d == 57)
 				c++;
-			}
+			if (d == 57)
+				d = 48;
+			d++;
 		}
 		c = ct1;
 		d = b + 2;
