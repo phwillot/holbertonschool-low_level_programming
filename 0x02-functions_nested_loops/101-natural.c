@@ -14,9 +14,7 @@ int main(void)
 
 	while (cur < 1024)
 	{
-		if (cur % 3 == 0)
-			sum += cur;
-		if (cur % 5 == 0)
+		if (cur % 3 == 0 || cur % 5 == 0)
 			sum += cur;
 		cur++;
 	}
