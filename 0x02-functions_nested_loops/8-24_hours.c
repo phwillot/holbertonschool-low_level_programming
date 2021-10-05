@@ -27,6 +27,4 @@ void jack_bauer(void)
 		d = c = 48;
 		b == 57 ? b = 48, a++ : b++;
 	}
-
-
 }
