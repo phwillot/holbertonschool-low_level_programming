@@ -22,7 +22,6 @@ int main(void)
 		if (number % 2 == 0)
 		{
 			sum += number;
-			printf("%ld\n", sum);
 		}
 		y = z;
 		z = number;
