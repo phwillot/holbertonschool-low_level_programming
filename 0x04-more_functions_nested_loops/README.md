@@ -25,3 +25,7 @@
 9. Prints the numbers from 1 to 100, replace multiples of three.
 
 10. Prints a triangle.
+
+100. Prints the largest prime factor of the number 612852475143.
+
+101. Prints an integer.
