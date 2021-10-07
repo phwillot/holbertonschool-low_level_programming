@@ -19,10 +19,6 @@ void print_number(int n)
 			n -= n * 2;
 			_putchar('-');
 		}
-		/**
-		 *if (n >= 2147483647)
-		 *	_putchar(n / 10000000000 + '0');
-		 */
 
 		if (n >= 1000000000)
 			_putchar(n / 1000000000 % 10 + '0');
