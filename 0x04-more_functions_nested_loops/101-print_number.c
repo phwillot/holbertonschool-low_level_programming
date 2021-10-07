@@ -9,44 +9,37 @@
 
 void print_number(int n)
 {
-	unsigned int i = 0;
+	unsigned int i = n;
 
 	if (n == 0)
 		_putchar('0' + n);
-
 	else
 	{
 		if (n < 0)
 		{
-			n -= n * 2;
+			i = -n;
 			_putchar('-');
 		}
 
-		if (n > INT_MAX)
-		{
-			i = n;
+		if (i >= 1000000000)
 			_putchar(i / 1000000000 % 10 + '0');
-		}
-
-		if (n >= 1000000000 && n <= INT_MAX)
-			_putchar(n / 1000000000 % 10 + '0');
-		if (n >= 100000000)
-			_putchar(n / 100000000 % 10 + '0');
-		if (n >= 10000000)
-			_putchar(n / 10000000 % 10 + '0');
-		if (n >= 1000000)
-			_putchar(n / 1000000 % 10 + '0');
-		if (n >= 100000)
-			_putchar(n / 100000 % 10 + '0');
-		if (n >= 10000)
-			_putchar(n / 10000 % 10 + '0');
-		if (n >= 1000)
-			_putchar(n / 1000 % 10 + '0');
-		if (n >= 100)
-			_putchar(n / 100 % 10 + '0');
-		if (n >= 10)
-			_putchar(n / 10 % 10 + '0');
-		_putchar(n % 10 + '0');
+		if (i >= 100000000)
+			_putchar(i / 100000000 % 10 + '0');
+		if (i >= 10000000)
+			_putchar(i / 10000000 % 10 + '0');
+		if (i >= 1000000)
+			_putchar(i / 1000000 % 10 + '0');
+		if (i >= 100000)
+			_putchar(i / 100000 % 10 + '0');
+		if (i >= 10000)
+			_putchar(i / 10000 % 10 + '0');
+		if (i >= 1000)
+			_putchar(i / 1000 % 10 + '0');
+		if (i >= 100)
+			_putchar(i / 100 % 10 + '0');
+		if (i >= 10)
+			_putchar(i / 10 % 10 + '0');
+		_putchar(i % 10 + '0');
 	}
 
 }
