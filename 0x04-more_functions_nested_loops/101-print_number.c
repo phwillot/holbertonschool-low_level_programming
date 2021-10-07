@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <limits.h>
 /**
   * print_number - Prints an integer
   * @n: Print this integer
@@ -19,6 +19,9 @@ void print_number(int n)
 			n -= n * 2;
 			_putchar('-');
 		}
+
+		if (n >= INT_MAX)
+			_putchar(n / 10000000000 / 10 + '0');
 
 		if (n >= 1000000000)
 			_putchar(n / 1000000000 % 10 + '0');
