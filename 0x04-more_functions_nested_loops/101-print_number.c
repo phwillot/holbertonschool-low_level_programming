@@ -9,6 +9,8 @@
 
 void print_number(int n)
 {
+	unsigned int i = 0;
+
 	if (n == 0)
 		_putchar('0' + n);
 
@@ -20,7 +22,13 @@ void print_number(int n)
 			_putchar('-');
 		}
 
-		if (n >= 1000000000)
+		if (n > INT_MAX)
+		{
+			i = n;
+			_putchar(i / 1000000000 % 10 + '0');
+		}
+
+		if (n >= 1000000000 && n <= INT_MAX)
 			_putchar(n / 1000000000 % 10 + '0');
 		if (n >= 100000000)
 			_putchar(n / 100000000 % 10 + '0');
