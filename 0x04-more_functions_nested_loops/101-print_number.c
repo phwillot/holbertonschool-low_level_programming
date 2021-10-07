@@ -20,9 +20,6 @@ void print_number(int n)
 			_putchar('-');
 		}
 
-		if (n >= INT_MAX)
-			_putchar(n / 10000000000 / 10 + '0');
-
 		if (n >= 1000000000)
 			_putchar(n / 1000000000 % 10 + '0');
 		if (n >= 100000000)
