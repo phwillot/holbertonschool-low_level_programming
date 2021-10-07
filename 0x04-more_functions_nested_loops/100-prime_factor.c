@@ -10,7 +10,14 @@
 
 int main(void)
 {
-	long int n = 612852475143;
+	long int n, i = 612852475143;
+
+	for (n = 3; n < i; n += 2)
+	{
+		if (i % n == 0)
+			i /= n;
+	}
+	printf("%ld\n", i);
 
 	return (0);
 }
