@@ -12,10 +12,10 @@ int main(void)
 {
 	long double i, y = 0, z = 1, number;
 
-	for (i = 0; i < 98; i++)
+	for (i = 0; i < 95; i++)
 	{
 		number = y + z;
-		if (i != 97)
+		if (i != 94)
 			printf("%0.Lf, ", number);
 		else
 			printf("%0.Lf\n", number);
