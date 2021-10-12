@@ -39,6 +39,8 @@ int _atoi(char *s)
 		number += s[i] - '0';
 		if (s[i + 1] != '\0')
 			number *= 10;
+		if ((s[i + 1] < 47 || s[i + 1] > 57) && s[i + 1] != '\0')
+			number /= 10;
 		i++;
 	}
 	if (ct1 == ct2)
