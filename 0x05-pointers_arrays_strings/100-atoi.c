@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
   * _atoi - Convert a string to a number
@@ -9,13 +10,20 @@
 
 int _atoi(char *s)
 {
-	unsigned int i = 0, number = 0, ct1 = 0, ct2 = 0;
+	int i = 0, number = 0, ct1 = 0, ct2 = 0, ct3 = 0;
 	int y = 0;
 
 	while (s[y] != '\0')
+	{
+		if (s[y] >= 48 && s[y] <= 57)
+			ct3++;
 		y++;
+	}
 
 	if (y == 0)
+		return (0);
+
+	if (ct3 == 0)
 		return (0);
 
 	while (s[i] < 48 || s[i] > 57)
