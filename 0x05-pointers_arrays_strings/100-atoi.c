@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
   * _atoi - Convert a string to a number
   * @s: String to pass
@@ -8,7 +9,7 @@
 
 int _atoi(char *s)
 {
-	int i = 0, number = 0, ct1 = 0, ct2 = 0;
+	unsigned int i = 0, number = 0, ct1 = 0, ct2 = 0;
 
 	while (s[i] < 48 || s[i] > 57)
 	{
@@ -29,6 +30,9 @@ int _atoi(char *s)
 	}
 
 	number /= 10;
+
+	if (number == 0)
+		return (0);
 
 	if (ct1 < ct2 || ct1 == ct2)
 		return (number);
