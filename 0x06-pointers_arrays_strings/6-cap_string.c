@@ -18,11 +18,9 @@ char *cap_string(char *s)
 		{
 			if (s[0] > 96 && s[i] < 123)
 				s[0] -= 32;
-			if (s[i - 1] == sep[y] && s[i] > 96 && s[i] < 123)
-			{
-				s[i] -= 32;
-			}
 
+			if (s[i - 1] == sep[y] && s[i] > 96 && s[i] < 123)
+				s[i] -= 32;
 		}
 	}
 
