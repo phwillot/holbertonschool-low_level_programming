@@ -9,21 +9,16 @@
 char *rot13(char *s)
 {
 	int i, y;
-	char min[] = "abcdefghijklmnopqrstuvwxyz";
-	char maj[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char letters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char converted[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (y = 0; y < 26; y++)
+		for (y = 0; y < 52; y++)
 		{
-			if ((s[i] == min[y] || s[i] == maj[y]) && y <= 12)
+			if (s[i] == letters[y])
 			{
-				s[i] += 13;
-				break;
-			}
-			else if ((s[i] == min[y] || s[i] == maj[y]) && y >= 12)
-			{
-				s[i] -= 13;
+				s[i] = converted[y];
 				break;
 			}
 		}
