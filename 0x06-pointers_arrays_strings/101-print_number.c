@@ -22,7 +22,7 @@ void print_number(int n)
 
 		while (div >= 10)
 		{
-			if (i > div)
+			if (i >= div)
 				_putchar(i / div % 10 + '0');
 			div /= 10;
 		}
