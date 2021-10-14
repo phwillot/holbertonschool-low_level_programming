@@ -21,10 +21,7 @@ char *cap_string(char *s)
 				s[i] -= 32;
 			}
 		}
-		y = 0;
 	}
-
-	s[i] = '\0';
 
 	return (s);
 
