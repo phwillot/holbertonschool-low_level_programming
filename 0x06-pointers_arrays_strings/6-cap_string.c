@@ -19,11 +19,12 @@ char *cap_string(char *s)
 			if (s[i - 1] == sep[y] && s[i] > 96 && s[i] < 123)
 			{
 				s[i] -= 32;
-				break;
 			}
 		}
 		y = 0;
 	}
+
+	s[i] = '\0';
 
 	return (s);
 
