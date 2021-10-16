@@ -16,7 +16,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	i = _strlen(n1) - 1;
 	y = _strlen(n2) - 1;
-
 	while (i > 0 || y > 0)
 	{
 		result = (n1[i] - 48) + (n2[y] - 48) + ret;
@@ -28,22 +27,26 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		}
 		else
 			ret = 0;
-
 		r[p] = (result % 10) + 48;
-
 		if (i != 0)
 			i--;
 		if (y != 0)
 			y--;
 		p++;
-
 	}
 	result = (n1[0] - 48) + (n2[0] - 48);
 	r[p] = (result % 10) + 48;
-	r[p + 1] = 49;
-	r[p + 2] = '\0';
-	p += 2;
-
+	if (result >= 10)
+	{
+		r[p + 1] = 49;
+		r[p + 2] = '\0';
+		p += 2;
+	}
+	else
+	{
+		r[p + 1] = '\0';
+		p += 1;
+	}
 	reverse_array_s(r, p);
 	if (p > size_r - 1)
 		return (0);
