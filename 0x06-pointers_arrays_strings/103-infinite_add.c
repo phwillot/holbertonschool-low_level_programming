@@ -72,14 +72,14 @@ int _strlen(char *s)
 }
 
 /**
-  * reverse_array - Reverse the content of an array of integers.
-  * @a: an array of integers
+  * reverse_array_s - Reverse the content of an array of characters.
+  * @a: an array of characters
   * @n: Number of elements of the array
   *
   * Return: void
   */
 
-void reverse_array(int *a, int n)
+void reverse_array_s(char *a, int n)
 {
 	int i, temp;
 
