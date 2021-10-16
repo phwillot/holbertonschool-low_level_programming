@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
   * infinite_add - Adds two numbers.
@@ -50,4 +49,45 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		return (0);
 	else
 		return (r);
+}
+
+/**
+  * _strlen - Prints length of a string
+  * @s: pointer to an char
+  *
+  * Return: Length of a string
+  */
+
+int _strlen(char *s)
+{
+	int i = 0, n = 0;
+
+	while (s[i] != '\0')
+	{
+		n++;
+		i++;
+	}
+
+	return (n);
+}
+
+/**
+  * reverse_array - Reverse the content of an array of integers.
+  * @a: an array of integers
+  * @n: Number of elements of the array
+  *
+  * Return: void
+  */
+
+void reverse_array(int *a, int n)
+{
+	int i, temp;
+
+	for (i = 0; i < n; i++)
+	{
+		temp = a[n - 1];
+		a[n - 1] = a[i];
+		a[i] = temp;
+		n--;
+	}
 }
