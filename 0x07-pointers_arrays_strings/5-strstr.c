@@ -27,10 +27,10 @@ char *_strstr(char *haystack, char *needle)
 			y++;
 		}
 		if (count == size)
-			break;
+			return (haystack + temp);
 		y = count = 0;
 		i = temp;
 		i++;
 	}
-	return (haystack + temp);
+	return (0);
 }
