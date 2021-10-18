@@ -22,9 +22,9 @@ char *_strpbrk(char *s, char *accept)
 			y++;
 		}
 		if (count >= 1)
-			break;
+			return (s + i);
 		y = count = 0;
 		i++;
 	}
-	return (s + i);
+	return (0);
 }
