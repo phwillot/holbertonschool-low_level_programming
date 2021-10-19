@@ -32,15 +32,6 @@ void print_buffer(char *b, int size)
 			j += 10;
 			i = temp;
 		}
-		if (i == size - 2)
-		{
-			printf("          ");
-			for (i -= 4; i < size; i++)
-				if (b[i] > 10)
-					printf("%c", b[i]);
-				else
-					printf("%c", '.');
-		}
 	}
 	printf("\n");
 }
