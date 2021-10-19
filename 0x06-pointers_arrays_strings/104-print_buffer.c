@@ -12,25 +12,28 @@ void print_buffer(char *b, int size)
 {
 	int i, buffer = 0x0, j = 8, temp;
 
-	for (i = 0; i < size; i += 2)
-	{
-		temp = i;
-		if (i % 10 == 0)
+	if (size == 0)
+		printf("\n");
+	else
+		for (i = 0; i < size; i += 2)
 		{
-			printf("%08x: ", buffer);
-			buffer += 10;
-		}
-		printf("%02x%02x ", b[i], b[i + 1]);
-		if (i == j)
-		{
-			for (i -= 8; i < temp + 2; i++)
-				if (b[i] > 10)
-					printf("%c", b[i]);
-				else
-					printf("%c", '.');
-			printf("\n");
-			j += 10;
-			i = temp;
+			temp = i;
+			if (i % 10 == 0)
+			{
+				printf("%08x: ", buffer);
+				buffer += 10;
+			}
+			printf("%02x%02x ", b[i], b[i + 1]);
+			if (i == j)
+			{
+				for (i -= 8; i < temp + 2; i++)
+					if (b[i] > 10)
+						printf("%c", b[i]);
+					else
+						printf("%c", '.');
+				printf("\n");
+				j += 10;
+				i = temp;
+			}
 		}
 	}
-}
