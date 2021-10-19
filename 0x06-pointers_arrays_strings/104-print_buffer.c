@@ -38,6 +38,6 @@ void print_buffer(char *b, int size)
 			i = temp;
 		}
 	}
-	if (i % 10 != 0)
+	if (i % 10 != 0 || size == 0)
 		printf("\n");
 }
