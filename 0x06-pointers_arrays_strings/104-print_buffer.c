@@ -12,6 +12,7 @@ void print_buffer(char *b, int size)
 {
 	int i, y = 0, buffer = 0x0, j = 8, temp, lastline = size % 10;
 
+	lastline > 1 ? lastline++ : lastline;
 	for (i = 0; i < size; i += 2)
 	{
 		temp = i;
@@ -34,8 +35,7 @@ void print_buffer(char *b, int size)
 				else
 					printf("%c", '.');
 			printf("\n");
-			j += 10;
-			i = temp;
+			j += 10, i = temp;
 		}
 	}
 	if (size % 10 != 0)
