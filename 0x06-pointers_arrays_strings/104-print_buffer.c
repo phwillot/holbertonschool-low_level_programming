@@ -33,5 +33,4 @@ void print_buffer(char *b, int size)
 			i = temp;
 		}
 	}
-	printf("\n");
 }
