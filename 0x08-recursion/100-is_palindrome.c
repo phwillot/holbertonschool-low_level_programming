@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
   * is_palindrome - Check if the string is a palindrome.
   * @s: string to check
@@ -8,15 +10,12 @@
 
 int is_palindrome(char *s)
 {
-	int i = 0;
+	int length = _strlength(s, 0) - 1;
 
 	if (!*s)
 		return (1);
 
-	while (s[i] != '\0')
-		i++;
-	i--;
-	return (check_letters(s, 0, i));
+	return (check_letters(s, 0, length));
 }
 
 /**
@@ -41,4 +40,20 @@ int check_letters(char *s, int start, int end)
 	i++;
 
 	return (check_letters(s, start + 1, end - 1));
+}
+
+/**
+  * _strlength - Get the length of a string
+  * @s: string to count characters
+  * @i: length
+  *
+  * Return: length of the string
+  */
+
+int _strlength(char *s, int i)
+{
+	if (s[i] == '\0')
+		return (i);
+
+	return (_strlength(s, i + 1));
 }
