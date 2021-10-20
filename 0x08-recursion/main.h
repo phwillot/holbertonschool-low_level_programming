@@ -8,3 +8,5 @@ int _sqrt_recursion(int n);
 int get_square(int n, int i);
 int is_prime_number(int n);
 int check_prime(int n, int i);
+int is_palindrome(char *s);
+int check_letters(char *s, int start, int end);
