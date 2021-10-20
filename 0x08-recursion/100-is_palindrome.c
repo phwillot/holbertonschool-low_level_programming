@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
   * is_palindrome - Check if the string is a palindrome.
@@ -52,7 +51,7 @@ int check_letters(char *s, int start, int end)
 
 int _strlength(char *s, int i)
 {
-	if (s[i] == '\0')
+	if (!*(s + i))
 		return (i);
 
 	return (_strlength(s, i + 1));
