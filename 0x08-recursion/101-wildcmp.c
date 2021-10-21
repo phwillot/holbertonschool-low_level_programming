@@ -23,7 +23,7 @@ int wildcmp(char *s1, char *s2)
 
 int checkLetters(char *s1, char *s2)
 {
-	if (*s2 == '*' && !*(s2 + 1))
+	if (*s2 == '*' && (!*(s2 + 1) || *(s2 - 1) == '*'))
 		return (1);
 
 	if (*s1 != *s2 && *s2 == '*')
