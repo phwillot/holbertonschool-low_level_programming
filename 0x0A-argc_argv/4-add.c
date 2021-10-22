@@ -15,13 +15,16 @@ int main(int argc, char *argv[])
 
 	if (argc == 1)
 		printf("%d\n", 0);
+
 	else
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (atoi(argv[i]))
+			if (atoi(argv[i]) && atoi(argv[i]) > 0)
+			{
 				checkValidFormat++;
-			sum += atoi(argv[i]);
+				sum += atoi(argv[i]);
+			}
 		}
 		if (checkValidFormat == argc - 1)
 			printf("%d\n", sum);
