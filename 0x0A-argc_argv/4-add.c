@@ -25,6 +25,9 @@ int main(int argc, char *argv[])
 				checkValidFormat++;
 				sum += atoi(argv[i]);
 			}
+
+			if (atoi(argv[i]) < 0)
+				checkValidFormat++;
 		}
 		if (checkValidFormat == argc - 1)
 			printf("%d\n", sum);
