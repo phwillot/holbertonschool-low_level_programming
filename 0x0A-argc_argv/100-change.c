@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[])
 {
-	int nbpiece = 0, cents, i;
+	int cents, i;
 
 	if (argc == 1 || argc > 2)
 	{
@@ -21,30 +21,29 @@ int main(int argc, char *argv[])
 	}
 	cents = atoi(argv[1]);
 
-	if (cents <= 0)
+	if (cents >= 0)
+	{
+		for (i = 0; cents > 0; i++)
+		{
+			if (cents >= 25)
+				cents -= 25;
+
+			else if (cents >= 10)
+				cents -= 10;
+
+			else if (cents >= 5)
+				cents -= 5;
+
+			else if (cents >= 2)
+				cents -= 2;
+
+			else if (cents >= 1)
+				cents--;
+		}
+		printf("%d\n", i);
+	}
+	else
 		printf("%d\n", 0);
-
-	if (cents >= 25)
-		for (i = 0; cents >= 25; i++)
-			cents -= 25, nbpiece++;
-
-	if (cents >= 10)
-		for (i = 0; cents >= 10; i++)
-			cents -= 10, nbpiece++;
-
-	if (cents >= 5)
-		for (i = 0; cents >= 5; i++)
-			cents -= 5, nbpiece++;
-
-	if (cents >= 2)
-		for (i = 0; cents >= 2; i++)
-			cents -= 2, nbpiece++;
-
-	if (cents >= 1)
-		for (i = 0; cents >= 1; i++)
-			cents--, nbpiece++;
-
-	printf("%d\n", nbpiece);
 
 	return (0);
 }
