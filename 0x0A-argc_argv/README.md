@@ -1,21 +1,17 @@
-# 0x08. C - Recursion
+# 0x0A. C - argc, argv
 
-## In this project, I learned about recursion.
+## In this project, I learned about argv and argv.
 
 ### Description of the tasks: 
 
-0. Prints a string.
+0. Program that prints its name.
 
-1. Prints a string in reverse.
+1. Program that prints the number of arguments passed into it.
 
-2. Return the length of a string.
+2. Program that prints all arguments it receives.
 
-3. Give the factorial of a given number.
+3. Program that multiplies two numbers.
 
-4. Return the value of x raised to the power of y.
+4. Program that adds positive numbers.
 
-5. Return the natural square root of a number.
-
-6. Check if the integer is a prime number.
-
-7. Check if the string is a palindrome.
+5. Program that prints the minimum number of coins to make change for an amount of money.
