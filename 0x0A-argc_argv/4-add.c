@@ -32,7 +32,10 @@ int main(int argc, char *argv[])
 		if (checkValidFormat == argc - 1)
 			printf("%d\n", sum);
 		else
+		{
 			printf("Error\n");
+			return (1);
+		}
 	}
 
 	return (0);
