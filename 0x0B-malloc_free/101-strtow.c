@@ -28,6 +28,9 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 			count++;
 
+	if (count == 0)
+		return (NULL);
+
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] != ' ')
