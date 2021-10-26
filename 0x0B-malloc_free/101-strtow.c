@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -73,6 +72,12 @@ int _strlen(char *s)
 	return (n);
 }
 
+/**
+  * numWords - Counts number of words in a string
+  * @s: string to count the words
+  *
+  * Return: Number of words
+  */
 
 int numWords(char *s)
 {
