@@ -10,7 +10,7 @@
 
 char **strtow(char *str)
 {
-	int i = 0, y = 0, stringLength, countNoSpace;
+	int i = 0, y = 0, stringLength, countNoSpace = 0;
 	char **ptr;
 
 	if (str == NULL)
@@ -27,6 +27,9 @@ char **strtow(char *str)
 	for (i = 0; str[i]; i++)
 		if (str[i] != ' ')
 			countNoSpace++;
+
+	if (countNoSpace == 0)
+		return (NULL);
 
 	for (i = 0; str[i]; i++)
 	{
