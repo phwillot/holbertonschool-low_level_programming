@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -27,8 +28,11 @@ int **alloc_grid(int width, int height)
 		ptr[i] = malloc(width * sizeof(int));
 		if (ptr[i] == NULL)
 		{
-			free(ptr);
-			return (NULL);
+			while (i <= 0)
+			{
+				free(ptr[i]);
+				i--;
+			}
 		}
 		i++;
 	}
