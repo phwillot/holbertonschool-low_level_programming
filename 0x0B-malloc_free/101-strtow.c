@@ -37,7 +37,7 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			ptr[y] = malloc(countNoSpace);
-			while (str[i] != ' ' && str[i + 1] != '\0')
+			while (str[i] != ' ' && str[i] != '\0')
 			{
 				ptr[y][stringLength] = str[i];
 				stringLength++;
