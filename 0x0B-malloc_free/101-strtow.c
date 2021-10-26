@@ -12,17 +12,18 @@
 char **strtow(char *str)
 {
 	int i = 0, y = 0, stringLength = 0, countNoSpace = 0;
+	int numberOfWords;
 	char **ptr;
 
+	numberOfWords = numWords(str) + 1;
 	if (str == NULL)
 		return (NULL);
 
-	ptr = malloc(sizeof(char *) * 20);
+	ptr = malloc(sizeof(char *) * numberOfWords);
 	stringLength = _strlen(str);
 
 	if (ptr == NULL || stringLength == 0)
 		return (NULL);
-
 	stringLength = 0;
 
 	for (i = 0; str[i]; i++)
@@ -36,7 +37,7 @@ char **strtow(char *str)
 	{
 		if (str[i] != ' ')
 		{
-			ptr[y] = malloc(countNoSpace);
+			ptr[y] = malloc(18);
 			while (str[i] != ' ' && str[i + 1] != '\0')
 			{
 				ptr[y][stringLength] = str[i];
@@ -49,7 +50,6 @@ char **strtow(char *str)
 			y++;
 		}
 	}
-
 	return (ptr);
 }
 
@@ -70,5 +70,23 @@ int _strlen(char *s)
 		i++;
 	}
 
+	return (n);
+}
+
+
+int numWords(char *s)
+{
+	int i = 0, n = 0;
+
+	while (s[i])
+	{
+		if (s[i] != ' ')
+		{
+			n++;
+			while (s[i] != ' ')
+				i++;
+		}
+		i++;
+	}
 	return (n);
 }
