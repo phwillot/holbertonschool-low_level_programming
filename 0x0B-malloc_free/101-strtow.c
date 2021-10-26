@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -10,7 +11,7 @@
 
 char **strtow(char *str)
 {
-	int i = 0, y = 0, stringLength, countNoSpace = 0;
+	int i = 0, y = 0, stringLength = 0, countNoSpace = 0;
 	char **ptr;
 
 	if (str == NULL)
@@ -35,18 +36,18 @@ char **strtow(char *str)
 	{
 		if (str[i] != ' ')
 		{
-			ptr[y] = malloc(countNoSpace + 1);
-			while (str[i] != ' ')
+			ptr[y] = malloc(countNoSpace);
+			while (str[i] != ' ' && str[i + 1] != '\0')
 			{
 				ptr[y][stringLength] = str[i];
 				stringLength++;
 				i++;
 			}
-			ptr[y][stringLength] = '\0';
 			stringLength = 0;
 			y++;
 		}
 	}
+
 	return (ptr);
 }
 
