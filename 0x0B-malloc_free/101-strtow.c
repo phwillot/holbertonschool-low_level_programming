@@ -10,7 +10,7 @@
 
 char **strtow(char *str)
 {
-	int i = 0, y = 0, size, count = 0;
+	int i = 0, y = 0, size, count;
 	char **ptr;
 
 	if (str == NULL)
@@ -27,9 +27,6 @@ char **strtow(char *str)
 	for (i = 0; str[i]; i++)
 		if (str[i] != ' ')
 			count++;
-
-	if (count == 0)
-		return (NULL);
 
 	for (i = 0; str[i]; i++)
 	{
