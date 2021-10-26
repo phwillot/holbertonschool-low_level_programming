@@ -16,7 +16,7 @@ char **strtow(char *str)
 	if (str == NULL)
 		return (NULL);
 
-	ptr = malloc(sizeof(char *) * 3);
+	ptr = malloc(sizeof(char *) * 20);
 	stringLength = _strlen(str);
 
 	if (ptr == NULL || stringLength == 0)
