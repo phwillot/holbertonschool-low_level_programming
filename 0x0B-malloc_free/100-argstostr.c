@@ -21,7 +21,7 @@ char *argstostr(int ac, char **av)
 	for (i = 0; av[i]; i++)
 		compteur += _strlen(av[i]) + 1;
 
-	ptr = malloc(compteur);
+	ptr = malloc(compteur + 1);
 	compteur = 0;
 
 	for (i = 0; i < ac; i++)
