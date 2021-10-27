@@ -1,8 +1,8 @@
 # 0x01-variables_if_else_while
 
-In this project, I learned about variables, if | else, and while loops
+## In this project, I learned about variables, if | else, and while loops
 
-Description of the programms :
+### Description of the tasks:
 
 0. Assign a random number to n and compare if it's positive or negative or equal
    to 0.
