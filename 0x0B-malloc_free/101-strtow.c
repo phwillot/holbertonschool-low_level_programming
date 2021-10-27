@@ -17,10 +17,8 @@ char **strtow(char *str)
 
 	if (str == NULL)
 		return (NULL);
-
 	numberOfWords = numWords(str) + 1;
 	ptr = malloc(sizeof(char *) * numberOfWords);
-
 	if (ptr == NULL || numberOfWords == 1)
 		return (NULL);
 
@@ -28,47 +26,31 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			temp = i;
-
 			while (str[i] != ' ' && str[i] != '\0')
 				count++, i++;
-
 			ptr[y] = malloc(count + 1);
+
+			if (ptr[y] == NULL)
+			{
+				for (; y >= 0; y--)
+					free(ptr[y]);
+				free(ptr);
+				return (NULL);
+			}
 			i = temp, count = 0;
 
 			while (str[i] != ' ' && str[i + 1] != '\0')
 			{
 				ptr[y][strLength] = str[i];
-				strLength++;
-				i++;
+				strLength++, i++;
 			}
 
 			if (str[i + 1] == '\0')
 				ptr[y][strLength] = str[i];
-
 			strLength = 0;
 			y++;
 		}
 	return (ptr);
-}
-
-/**
-  * _strlen - Prints length of a string
-  * @s: pointer to an char
-  *
-  * Return: Length of a string
-  */
-
-int _strlen(char *s)
-{
-	int i = 0, n = 0;
-
-	while (s[i] != '\0')
-	{
-		n++;
-		i++;
-	}
-
-	return (n);
 }
 
 /**
