@@ -35,7 +35,7 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			temp = i;
-			while (str[i] != ' ' && str[i] != '\0')
+			while (str[i] != ' ')
 				count++, i++;
 			ptr[y] = malloc(count);
 			i = temp, count = 0;
