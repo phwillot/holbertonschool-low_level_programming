@@ -12,10 +12,10 @@
 char **strtow(char *str)
 {
 	int i = 0, y = 0, stringLength = 0, countNoSpace = 0;
-	int numberOfWords, count, temp;
+	int numberOfWords, count = 0, temp;
 	char **ptr;
 
-	numberOfWords = numWords(str) + 1;
+	numberOfWords = numWords(str);
 	if (str == NULL)
 		return (NULL);
 
@@ -35,7 +35,7 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			temp = i;
-			while (str[i] != ' ')
+			while (str[i] != ' ' && str[i] != '\0')
 				count++, i++;
 			ptr[y] = malloc(count);
 			i = temp, count = 0;
