@@ -2,7 +2,7 @@
 
 ## In this project, I learned about functions and nested loops
 
-### Description of the functions:
+### Description of the tasks:
 
 0. Prints "putchar" followed by a new line.
 
