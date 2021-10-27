@@ -10,4 +10,4 @@ In order to execute them, you have to compile the with **gcc** with the flags *-
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 "filename.c" -o "executable name"
 ```
 
-All the programms are using [Betty](https://github.com/holbertonschool/Betty/wiki) coding style in order to make the code clean for everyone.
+All the programs are using [Betty](https://github.com/holbertonschool/Betty/wiki) coding style in order to make the code clean for everyone.
