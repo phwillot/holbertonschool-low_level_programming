@@ -28,18 +28,23 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			temp = i;
+
 			while (str[i] != ' ' && str[i] != '\0')
 				count++, i++;
+
 			ptr[y] = malloc(count + 1);
 			i = temp, count = 0;
+
 			while (str[i] != ' ' && str[i + 1] != '\0')
 			{
 				ptr[y][strLength] = str[i];
 				strLength++;
 				i++;
 			}
+
 			if (str[i + 1] == '\0')
 				ptr[y][strLength] = str[i];
+
 			strLength = 0;
 			y++;
 		}
