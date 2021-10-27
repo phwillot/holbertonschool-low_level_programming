@@ -14,3 +14,7 @@
 3. Returns a pointer to a 2 dimensional array of integers.
 
 4. Frees a 2 dimensional grid.
+
+5. Concatenates all the arguments of your program.
+
+6. Splits a string into words.
