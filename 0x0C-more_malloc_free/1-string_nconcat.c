@@ -1,67 +1,75 @@
-#include<stdlib.h>
-#include"main.h"
+#include "main.h"
+#include <stdlib.h>
+
 /**
- * string_nconcat - concatenate two strings
- * @s1: destination string
- * @s2: source string
- * @n: number of bytes
- *
- * Return: pointer a newly allocated space in memory
- */
+  * string_nconcat - Concatenates two strings.
+  * @s1: String
+  * @s2: String to concat
+  * @n: Number of bytes to concat from s2
+  *
+  * Return: Pointer to concatenated string, NULL if it fails.
+  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, lengths1 = 0, lengths2 = 0;
+	unsigned int i, j, str1, str2;
 	char *ptr;
 
-	if (s1 == NULL)
-		lengths1 = 0;
-	else
-		lengths1 = _strlen(s1);
-	if (s2 == NULL)
-		n = lengths2 = 0;
-	else
+	if (s1 == NULL && s2 == NULL)
+		str1 = str2 = 0;
+	else if (s1 != NULL && s2 != NULL)
 	{
-		lengths2 = _strlen(s2);
-		n >= lengths2 ? n = lengths2 : n;
+		if (n >= _strlen(s2))
+			str1 = _strlen(s1), str2 = _strlen(s2);
+		else
+			str1 = _strlen(s1), str2 = n;
 	}
-	ptr = malloc((lengths1 + n + 6) * sizeof(char));
+	else if (s1 == NULL && s2 != NULL)
+	{
+		j = 0;
+		if (n >= _strlen(s2))
+			str1 = 0, str2 = _strlen(s2);
+		else
+			str1 = 0, str2 = n;
+	}
+	else if (s1 != NULL && s2 == NULL)
+
+		str1 = _strlen(s1), str2 = 0, n = 0;
+
+	ptr = malloc(sizeof(char) * (str1 + str2 + 1));
 	if (ptr == NULL)
 		return (NULL);
-	if (lengths1 == 0 && lengths2 == 0)
-		*ptr = '\0';
-	if (lengths1 != 0 && lengths2 == 0)
-	{
-		for (i = 0; s1[i]; i++)
-			ptr[i] = s1[i];
-		ptr[i] = '\0';
-	}
-	else if (lengths1 == 0 && lengths2 != 0)
-	{
-		for (i = 0; i < n; i++)
-			ptr[i] = s2[i];
-		ptr[i] = '\0';
-	}
-	else if (lengths1 != 0 && lengths2 != 0)
-	{
-		for (i = 0; s1[i]; i++)
-			ptr[i] = s1[i];
-		for (j = 0; j < n; j++)
-			ptr[i + j] = s2[j];
-		ptr[i + j] = '\0';
-	}
+	if (s1 != NULL && s2 != NULL)
+		for (i = 0, j = 0; s1[i]; i++, j++)
+			ptr[j] = s1[i];
+	if (s2 != NULL && n >= _strlen(s2))
+		for (i = 0; s2[i]; i++, j++)
+			ptr[j] = s2[i];
+	if (s2 != NULL && n < _strlen(s2))
+		for (i = 0; i < n; i++, j++)
+			ptr[j] = s2[i];
+	if (s2 == NULL && s1 != NULL)
+		for (i = 0, j = 0; s1[i]; i++, j++)
+			ptr[j] = s1[i];
 	return (ptr);
 }
 
 /**
- * _strlen - returns the length of a string
- * @s: the string
- * Return: the length;
- */
+  * _strlen - Prints length of a string
+  * @s: pointer to an char
+  *
+  * Return: Length of a string
+  */
+
 unsigned int _strlen(char *s)
 {
-	unsigned int count = 0;
+	int i = 0, n = 0;
 
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	while (s[i] != '\0')
+	{
+		n++;
+		i++;
+	}
+
+	return (n);
 }
