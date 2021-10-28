@@ -18,13 +18,24 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *ptr;
 
 	if (s1 == NULL && s2 == NULL)
+	{
 		ptr = malloc(sizeof(char));
+		if (ptr == NULL)
+			return (NULL);
+	}
 
 	if (n >= size2)
+	{
 		ptr = str_concat(s1, s2);
+		if (ptr == NULL)
+			return (NULL);
+	}
+
 	else
 	{
 		ptr = malloc(_strlen(s1) + n + 1);
+		if (ptr == NULL)
+			return (NULL);
 
 		for (i = 0; s1[i]; j++, i++)
 			ptr[j] = s1[i];
