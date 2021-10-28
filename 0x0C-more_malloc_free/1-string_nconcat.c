@@ -13,34 +13,47 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j = 0;
-	unsigned int size2 = _strlen(s2);
+	unsigned int i, j;
 	char *ptr;
+	unsigned int size1 = _strlen(s1), size2 = _strlen(s2);
 
 	if (s1 == NULL && s2 == NULL)
-	{
 		ptr = malloc(sizeof(char));
-		if (ptr == NULL)
-			return (NULL);
+
+	else if (s1 != NULL && s2 != NULL)
+	{
+		if (n >= size2)
+			ptr = malloc(size1 + size2 + 1);
+		else
+			ptr = malloc(size1 + n + 1);
+	}
+	else if (s1 == NULL && s2 != NULL)
+	{
+		if (n >= size2)
+			ptr = malloc(size2 + 1);
+		else
+			ptr = malloc(n + 1);
+	}
+	else if (s1 != NULL && s2 == NULL)
+	{
+		ptr = malloc(size1 + 1);
 	}
 
-	if (n >= size2)
-	{
-		ptr = str_concat(s1, s2);
-		if (ptr == NULL)
-			return (NULL);
-	}
+	if (ptr == NULL)
+		return (NULL);
 
-	else
-	{
-		ptr = malloc(_strlen(s1) + n + 1);
-		if (ptr == NULL)
-			return (NULL);
-
-		for (i = 0; s1[i]; j++, i++)
+	if (s1 != NULL)
+		for (i = 0, j = 0; s1[i]; i++, j++)
 			ptr[j] = s1[i];
-		for (i = 0; i < n; j++, i++)
-			ptr[j] = s2[i];
+
+	if (s2 != NULL)
+	{
+		if (n >= size2)
+			for (i = 0; s2[i]; i++, j++)
+				ptr[j] = s2[i];
+		else
+			for (i = 0; i < n; i++, j++)
+				ptr[j] = s2[i];
 	}
 	return (ptr);
 }
@@ -63,56 +76,4 @@ int _strlen(char *s)
 	}
 
 	return (n);
-}
-
-/**
-  * str_concat - Concatenates two strings.
-  * @s1: String to concatenate
-  * @s2: String to concatenate
-  *
-  * Return: On fail (NULL)
-  */
-
-char *str_concat(char *s1, char *s2)
-{
-	unsigned int i = 0, y = 0;
-	char *ar;
-
-	if (s1 == NULL && s2 == NULL)
-	{
-		ar = malloc(1);
-		return (ar);
-	}
-	if (s1 != NULL)
-	{
-		while (s1[i])
-			i++;
-	}
-	if (s2 != NULL)
-	{
-		while (s2[y])
-			y++;
-	}
-	ar = malloc((i * sizeof(char)) + (y * sizeof(char)) + 1);
-	if (ar == NULL)
-		return (NULL);
-	i = 0;
-	if (s1 != NULL)
-	{
-		while (s1[i])
-		{
-			ar[i] = s1[i];
-			i++;
-		}
-	}
-	y = 0;
-	if (s2 != NULL)
-	{
-		while (s2[y])
-		{
-			ar[i] = s2[y];
-			y++, i++;
-		}
-	}
-	return (ar);
 }
