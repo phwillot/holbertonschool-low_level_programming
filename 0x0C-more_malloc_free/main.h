@@ -1,7 +1,7 @@
 #ifndef __MAIN__H
 #define __MAIN__H
 int _putchar(char c);
-int _strlen(char *s);
+unsigned int _strlen(char *s);
 void *malloc_checked(unsigned int b);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
 char *str_concat(char *s1, char *s2);

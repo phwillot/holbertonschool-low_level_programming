@@ -15,28 +15,27 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i, j;
 	char *ptr;
-	unsigned int size1 = _strlen(s1), size2 = _strlen(s2);
 
 	if (s1 == NULL && s2 == NULL)
 		ptr = malloc(sizeof(char));
 
 	else if (s1 != NULL && s2 != NULL)
 	{
-		if (n >= size2)
-			ptr = malloc(size1 + size2 + 1);
+		if (n >= _strlen(s2))
+			ptr = malloc(_strlen(s1) + _strlen(s2) + 1);
 		else
-			ptr = malloc(size1 + n + 1);
+			ptr = malloc(_strlen(s1) + n + 1);
 	}
 	else if (s1 == NULL && s2 != NULL)
 	{
-		if (n >= size2)
-			ptr = malloc(size2 + 1);
+		if (n >= _strlen(s2))
+			ptr = malloc(_strlen(s1) + 1);
 		else
 			ptr = malloc(n + 1);
 	}
 	else if (s1 != NULL && s2 == NULL)
 	{
-		ptr = malloc(size1 + 1);
+		ptr = malloc(_strlen(s1) + 1);
 	}
 
 	if (ptr == NULL)
@@ -48,7 +47,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (s2 != NULL)
 	{
-		if (n >= size2)
+		if (n >= _strlen(s2))
 			for (i = 0; s2[i]; i++, j++)
 				ptr[j] = s2[i];
 		else
@@ -65,7 +64,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
   * Return: Length of a string
   */
 
-int _strlen(char *s)
+unsigned int _strlen(char *s)
 {
 	int i = 0, n = 0;
 
