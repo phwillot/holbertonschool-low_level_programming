@@ -4,15 +4,12 @@
 
 ### Description of the tasks:
 
-0. Creates an array of chars, and initializes it with a specific char.
+0. Allocated memory using malloc.
 
-1. Returns a pointer to a newly allocated space in memory, which contains a copy
-   of the string given as a parameter.
+1. Concatenates two strings.
 
-2. Concatenates two strings.
+2. Allocates memory for an array of nmemb elements of size bytes each.
 
-3. Returns a pointer to a 2 dimensional array of integers.
+3. Creates an array of integers.
 
-4.
-
-5.
+4. Reallocates a memory block using malloc and free.
