@@ -1,8 +1,8 @@
-### 0x03-debugging
+# 0x03-debugging
 
 ## In this project, I learned how to debug manually others people programs.
 
-# Descriptions of the tasks:
+### Descriptions of the tasks:
 
 0. In this project, I just replace a variable to test the ouput of a function.
 
