@@ -22,17 +22,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 
 	nameC = name;
-	if (nameC != NULL)
-		dog->name = nameC;
-	else
-		dog->name = NULL;
+	dog->name = nameC;
 
 	dog->age = age;
 
 	ownerC = owner;
-	if (ownerC != NULL)
-		dog->owner = ownerC;
-	else
-		dog->owner = NULL;
+	dog->owner = ownerC;
+
 	return (dog);
 }
