@@ -1,4 +1,5 @@
 #include "dog.h"
+#include <stdlib.h>
 
 /**
   * init_dog - Initialize a variable of type struct dog
@@ -13,6 +14,8 @@
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	struct dog *dog;
+
+	dog = malloc(sizeof(struct dog));
 
 	dog = d;
 	dog->name = name;
