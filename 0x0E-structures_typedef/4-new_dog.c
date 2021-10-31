@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *_memcpy(char *dest, char *src, unsigned int n);
-int _strlen(char *s);
+char *_strdup(char *str);
 
 /**
   * new_dog - Creates a new dog.
@@ -17,62 +16,51 @@ int _strlen(char *s);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dog;
-	int sizeName = _strlen(name);
-	int sizeOwner = _strlen(owner);
-	char *copyName = {0};
-	char *copyOwner = {0};
-
-	_memcpy(copyName, name, sizeName);
-	_memcpy(copyOwner, owner, sizeOwner);
+	char *copyName = _strdup(name);
+	char *copyOwner = _strdup(owner);
 
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
 
-	dog->name = name;
+	dog->name = copyName;
 	dog->age = age;
-	dog->owner = owner;
+	dog->owner = copyOwner;
 
 	return (dog);
 }
 
 /**
-  * _memcpy - Fills that copies memory area
-  * @dest: memory area destination
-  * @src: pointer to string that'll copy bytes from
-  * @n: Number of bytes to copy from src
+  * _strdup - Returns a pointer to a newly allocated space in memory,
+  * which contains a copy of the string given as a parameter.
+  * @str: String to copy
   *
-  * Return: Pointer to dest
+  * Return: On fail (NULL) if str = NULL and insufficient memory,
+  * On success, pointer to the duplicated string
   */
 
-char *_memcpy(char *dest, char *src, unsigned int n)
+char *_strdup(char *str)
 {
 	unsigned int i = 0;
+	char *ar;
 
-	while (i < n)
-	{
-		dest[i] = src[i];
+	if (str == NULL)
+		return (NULL);
+
+	while (str[i])
 		i++;
-	}
-	return (dest);
-}
 
-/**
-  * _strlen - Prints length of a string
-  * @s: pointer to an char
-  *
-  * Return: Length of a string
-  */
+	ar = malloc(i * sizeof(char) + 1);
 
-int _strlen(char *s)
-{
-	int i = 0, n = 0;
+	if (ar == NULL)
+		return (NULL);
 
-	while (s[i] != '\0')
+	i = 0;
+	while (str[i])
 	{
-		n++;
+		ar[i] = str[i];
 		i++;
 	}
 
-	return (n);
+	return (ar);
 }
