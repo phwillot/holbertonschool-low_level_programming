@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "function_pointers.h"
 
 /**
   * main - Entry point
@@ -16,11 +15,18 @@ int main(int ac, char **av)
 	int byte;
 
 	if (ac != 2)
+	{
+		puts("Error");
 		exit(1);
+	}
 
 	byte = atoi(av[1]);
+
 	if (byte < 0)
+	{
+		puts("Error");
 		exit(2);
+	}
 
 	return (0);
 }
