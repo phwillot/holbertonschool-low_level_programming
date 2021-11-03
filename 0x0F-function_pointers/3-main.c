@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	if (ac != 4)
 	{
 		puts("Error");
-		return (98);
+		exit(98);
 	}
 
 	a = atoi(av[1]);
@@ -24,13 +24,13 @@ int main(int ac, char **av)
 	if ((av[2][0] == '/' || av[2][0] == '%') && b == 0)
 	{
 		puts("Error");
-		return (100);
+		exit(100);
 	}
 
 	if ((get_op_func(av[2])) == NULL)
 	{
 		puts("Error");
-		return (99);
+		exit(99);
 	}
 
 	result = get_op_func(av[2])(a, b);
