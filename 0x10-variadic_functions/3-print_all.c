@@ -88,7 +88,7 @@ void string_char(va_list arg)
 {
 	char *str = va_arg(arg, char *);
 
-	if (str == NULL && *str == '\0')
+	if (str == NULL)
 	{
 		printf("%s", "(nil)");
 		return;
