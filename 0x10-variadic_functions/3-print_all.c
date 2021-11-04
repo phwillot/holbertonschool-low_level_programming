@@ -30,11 +30,11 @@ void print_all(const char * const format, ...)
 			if (format[i] == ch[y].ch)
 			{
 				printf("%s", separator);
+				separator = ", ";
 				ch[y].func(args);
 			}
 			y++;
 		}
-		separator = ", ";
 		y = 0;
 		i++;
 	}
