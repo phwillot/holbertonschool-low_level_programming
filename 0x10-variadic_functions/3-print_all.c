@@ -11,7 +11,6 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, y = 0;
 	va_list args;
-	char *characters = "cifs";
 	ch_t ch[] = {
 		{'c', ch_char},
 		{'i', int_char},
@@ -21,11 +20,11 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (format[i])
+	while (format[i] && format)
 	{
-		while (characters[y])
+		while (y < 4)
 		{
-			if (format[i] == ch[y].ch)
+			if (format[i] == ch[y].ch && ch[y].func)
 			{
 				ch[y].func(args);
 				if (format[i + 1] != '\0')
