@@ -19,14 +19,13 @@ void print_all(const char * const format, ...)
 		{'s', string_char},
 	};
 
-
 	va_start(args, format);
 
 	while (format[i])
 	{
 		while (characters[y])
 		{
-			if (format[i] == ch[y].ch)
+			if (characters[y] == ch[y].ch)
 			{
 				ch[y].c(args);
 				if (format[i + 1] != '\0')
