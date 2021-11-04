@@ -20,11 +20,11 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (format[i] && format)
+	while (format[i])
 	{
 		while (y < 4)
 		{
-			if (format[i] == ch[y].ch && ch[y].func)
+			if (format[i] == ch[y].ch && ch[y].func && format)
 			{
 				ch[y].func(args);
 				if (format[i + 1] != '\0')
