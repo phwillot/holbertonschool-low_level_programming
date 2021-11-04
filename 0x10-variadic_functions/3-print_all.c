@@ -25,9 +25,9 @@ void print_all(const char * const format, ...)
 	{
 		while (characters[y])
 		{
-			if (characters[y] == ch[y].ch)
+			if (format[i] == ch[y].ch)
 			{
-				ch[y].c(args);
+				ch[y].func(args);
 				if (format[i + 1] != '\0')
 					printf(", ");
 			}
@@ -85,5 +85,5 @@ void float_char(va_list arg)
 
 void string_char(va_list arg)
 {
-	printf("%s", va_arg(arg, char *) ? va_arg(arg, char *) : "(nil)");
+	printf("%s", va_arg(arg, char *));
 }
