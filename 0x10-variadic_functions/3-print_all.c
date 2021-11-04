@@ -87,11 +87,10 @@ void float_char(va_list arg)
 void string_char(va_list arg)
 {
 	char *str = va_arg(arg, char *);
-	char *nill = "(nil)";
 
-	if (str == NULL)
+	if (str == NULL && *str == '\0')
 	{
-		printf("%s", nill);
+		printf("%s", "(nil)");
 		return;
 	}
 	printf("%s", str);
