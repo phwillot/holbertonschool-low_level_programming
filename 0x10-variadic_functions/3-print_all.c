@@ -90,8 +90,7 @@ void string_char(va_list arg)
 
 	if (str == NULL)
 	{
-		printf("%s", "(nil)");
-		return;
+		str = "(nil)";
 	}
 	printf("%s", str);
 }
