@@ -10,25 +10,18 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0, y = 0;
-	va_list ptr;
+	va_list args;
 	char *characters = "cifs";
 
-	if (format == NULL)
-		exit(0);
-
-	va_start(ptr, format);
+	va_start(args, format);
 
 	while (format[i])
 	{
-		va_arg(ptr, void *);
 		while (characters[y])
 		{
 			if (format[i] == characters[y])
 			{
-				if (format[i + 1])
-					printf("%c, ", va_arg(ptr, int));
-				else
-					printf("%c", va_arg(ptr, int));
+				printf("%d, ", va_arg(args, int));
 			}
 			y++;
 		}
@@ -36,6 +29,6 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 
-	va_end(ptr);
+	va_end(args);
 	printf("\n");
 }
