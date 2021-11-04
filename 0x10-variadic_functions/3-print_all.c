@@ -11,6 +11,8 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, y = 0;
 	va_list args;
+	char *separator = "";
+
 	ch_t ch[] = {
 		{'c', ch_char},
 		{'i', int_char},
@@ -24,14 +26,14 @@ void print_all(const char * const format, ...)
 	{
 		while (y < 4)
 		{
-			if (format[i] == ch[y].ch && ch[y].func && format)
+			if (format[i] == ch[y].ch)
 			{
+				printf("%s", separator);
 				ch[y].func(args);
-				if (format[i + 1] != '\0')
-					printf(", ");
 			}
 			y++;
 		}
+		separator = ", ";
 		y = 0;
 		i++;
 	}
@@ -84,5 +86,10 @@ void float_char(va_list arg)
 
 void string_char(va_list arg)
 {
+	if (va_arg(arg, char *) == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
 	printf("%s", va_arg(arg, char *));
 }
