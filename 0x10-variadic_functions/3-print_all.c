@@ -86,7 +86,7 @@ void float_char(va_list arg)
 
 void string_char(va_list arg)
 {
-	if (va_arg(arg, char *) == NULL)
+	if (arg == NULL)
 	{
 		printf("(nil)");
 		return;
