@@ -10,8 +10,9 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0, y = 0;
-	va_list args;
 	char *separator = "";
+
+	va_list args;
 
 	ch_t ch[] = {
 		{'c', ch_char},
@@ -24,7 +25,7 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		while (y < 4)
+		while (ch[y].ch)
 		{
 			if (format[i] == ch[y].ch)
 			{
@@ -89,8 +90,7 @@ void string_char(va_list arg)
 	char *str = va_arg(arg, char *);
 
 	if (str == NULL)
-	{
 		str = "(nil)";
-	}
+
 	printf("%s", str);
 }
