@@ -11,6 +11,13 @@ void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
+/**
+  * struct ch - Struct to choose the good function according to character
+  * @ch: character
+  * @func: pointer to function which will take the va_list
+  */
+
+
 typedef struct ch
 {
 	char ch;
