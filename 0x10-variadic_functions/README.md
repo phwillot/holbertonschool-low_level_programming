@@ -4,12 +4,12 @@
 
 ### Description of the tasks:
 
-0. 
+0. Calculate the sum of all its parameters.
 
-1. 
+1. Prints numbers.
 
-2. 
+2. Prints strings.
 
-3. 
+3. Prints anything.
 
-4. 
+4. Hello world in assembly
