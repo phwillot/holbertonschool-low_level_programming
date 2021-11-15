@@ -1,6 +1,6 @@
-# 0x10-variadic_functions
+# 0x12-singly_linked_lists
 
-## In this project, I learned about variadic functions and const keyword.
+## In this project, I learned about singly linked lists.
 
 ### Description of the tasks:
 
