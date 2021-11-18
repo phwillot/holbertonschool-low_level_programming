@@ -10,18 +10,14 @@
 
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int i = 0, number = 1;
+	unsigned long int number = 1;
 
 	if (index > 31)
 		return (-1);
 
-	while (i < index)
-	{
-		number *= 2;
-		i++;
-	}
+	number = (1 << index);
 
-	*n += number;
+	*n ^= number;
 
 	return (1);
 }
