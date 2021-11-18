@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-  * get_endianess - Checks the endianess
+  * get_endianness - Checks the endianess
   *
   * Return: 0 if big endian, 1 if little endian.
   */
 
-int get_endianess(void)
+int get_endianness(void)
 {
 	return (0);
 }
