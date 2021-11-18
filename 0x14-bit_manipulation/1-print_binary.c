@@ -9,14 +9,14 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int i = 1;
+	unsigned long int i = (ULONG_MAX / 2) + 1;
 
 	if (n == 0)
 		_putchar('0');
 
-	while (i <= n)
-		i <<= 1;
-	i >>= 1;
+	while (i > n)
+		i >>= 1;
+
 
 	while (i != 0)
 	{
