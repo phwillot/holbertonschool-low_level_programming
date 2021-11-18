@@ -9,18 +9,13 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int i = (ULONG_MAX / 2) + 1;
-
-	if (n == 0)
-		_putchar('0');
-
-	while (i > n)
-		i >>= 1;
-
-
-	while (i != 0)
+	if (n >> 1)
 	{
-		n & i ? _putchar('1') : _putchar('0');
-		i >>= 1;
+		print_binary(n >> 1);
 	}
+
+	if (n - (2 * (n >> 1)))
+		_putchar('1');
+	else
+		_putchar('0');
 }
