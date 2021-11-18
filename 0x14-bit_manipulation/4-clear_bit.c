@@ -21,7 +21,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 		i++;
 	}
 
-	if (*n != 0 && number <= *n)
+	if (number <= *n)
 		*n -= number;
 
 	return (1);
