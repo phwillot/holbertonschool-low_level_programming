@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _pow_recursion(int x, int y);
+int _pow_recursion(unsigned long int x, unsigned long int y);
 
 
 /**
@@ -15,7 +15,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int i = 0, number = 1, result;
 
-	if (index > 31)
+	if (index > 32)
 		return (-1);
 
 	result = _pow_recursion(2, index);
@@ -25,9 +25,8 @@ int clear_bit(unsigned long int *n, unsigned int index)
 		number <<= 1;
 		i++;
 	}
-
-	if (number <= *n)
-		*n -= result;
+	if (*n != 0)
+		*n ^= result;
 
 	return (1);
 }
@@ -40,13 +39,10 @@ int clear_bit(unsigned long int *n, unsigned int index)
   * Return: return x^y
   */
 
-int _pow_recursion(int x, int y)
+int _pow_recursion(unsigned long int x, unsigned long int y)
 {
 	if (x == 1 || y == 0)
 		return (1);
-
-	if (y < 0)
-		return (-1);
 
 	return (x * _pow_recursion(x, y - 1));
 }
