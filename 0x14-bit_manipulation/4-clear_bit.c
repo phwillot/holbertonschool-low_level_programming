@@ -10,11 +10,17 @@
 
 int clear_bit(unsigned long int *n, unsigned int index)
 {
+	unsigned long int substract = 0;
+
 	if (index > 31)
 		return (-1);
 
-	if (*n != 0)
-		*n &= ~(1 << (index - 1));
+	substract = (1 << (index + 1));
+
+	if (*n != substract)
+		*n &= ~(substract);
+	else
+		*n ^= (substract);
 
 	return (1);
 }
