@@ -1,5 +1,8 @@
 #include "main.h"
 
+int _pow_recursion(int x, int y);
+
+
 /**
   * clear_bit - sets the value of a bit to 0 at given index.
   * @n: pointer to long unsigned int
@@ -10,10 +13,12 @@
 
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int i = 0, number = 1;
+	unsigned long int i = 0, number = 1, result;
 
 	if (index > 31)
 		return (-1);
+
+	result = _pow_recursion(2, index);
 
 	while (i < index)
 	{
@@ -22,7 +27,26 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	}
 
 	if (number <= *n)
-		*n -= number;
+		*n -= result;
 
 	return (1);
+}
+
+/**
+  * _pow_recursion - return the value of x raised to the power of y.
+  * @x: Integer
+  * @y: Integer
+  *
+  * Return: return x^y
+  */
+
+int _pow_recursion(int x, int y)
+{
+	if (x == 1 || y == 0)
+		return (1);
+
+	if (y < 0)
+		return (-1);
+
+	return (x * _pow_recursion(x, y - 1));
 }
