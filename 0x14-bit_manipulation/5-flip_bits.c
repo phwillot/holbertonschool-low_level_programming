@@ -11,17 +11,14 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int count = 0, num = ULONG_MAX;
+	unsigned long int count = 0, i;
 
-	while (num > n && num > m)
-		num >>= 1;
-	num += 1;
-
-	while (num != 0)
+	i = 0;
+	while (i < 32)
 	{
-		if ((n & num) != (m & num))
+		if (((n >> i) & 1) != ((m >> i) & 1))
 			count++;
-		num >>= 1;
+		i++;
 	}
 
 	return (count);
