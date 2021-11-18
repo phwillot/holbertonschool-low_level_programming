@@ -15,12 +15,12 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	if (index > 31)
 		return (-1);
 
-	substract = (1 << (index + 1));
+	substract = (1 << index);
 
 	if (*n != substract)
-		*n &= ~(substract);
+		*n = *n & ~(substract);
 	else
-		*n ^= (substract);
+		*n ^= substract;
 
 	return (1);
 }
