@@ -14,7 +14,7 @@
 
 int main(int ac, char **av)
 {
-	int fd, fd2, number, testWrite;
+	int fd, fd2, characters, writen, closed;
 	char buf[BUFSIZE];
 
 	if (ac != 3)
@@ -28,20 +28,21 @@ int main(int ac, char **av)
 	if (fd2 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 
-	while ((number = read(fd, buf, BUFSIZE)) != 0)
+	while ((characters = read(fd, buf, BUFSIZE)) != 0)
 	{
-		if (number == -1)
+		if (characters == -1)
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[2]), exit(98);
 
-		testWrite = write(fd2, buf, number);
+		writen = write(fd2, buf, characters);
 
-		if (testWrite == -1)
+		if (writen == -1)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	}
-
-	if (close(fd) == -1)
+	closed = close(fd);
+	if (closed == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close(fd)), exit(100);
-	if (close(fd2) == -1)
+	closed = close(fd2);
+	if (closed == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close(fd2)), exit(100);
 
 	return (0);
