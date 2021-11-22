@@ -16,15 +16,12 @@ int create_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_WRONLY, 0600);
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
 
 	while (text_content[i])
 		i++;
-
-	if (!text_content)
-		i = 1;
 
 	buf = malloc(sizeof(char) * i);
 	if (!buf)
@@ -37,10 +34,8 @@ int create_file(const char *filename, char *text_content)
 		buf[i] = text_content[i];
 		i++;
 	}
-	if (i == 0)
-		write(fd, "", 1);
 
-	else if (write(fd, buf, i) == -1)
+	if (write(fd, buf, i) == -1)
 		return (-1);
 
 	close(fd);
