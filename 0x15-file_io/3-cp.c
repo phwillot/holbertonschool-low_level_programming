@@ -1,5 +1,7 @@
 #include "main.h"
 
+#define BUFSIZE 1024
+
 /**
   * main - Entry point
   * @ac: number of arguments.
@@ -13,7 +15,7 @@
 int main(int ac, char **av)
 {
 	int fd, fd2, number;
-	char *buf;
+	char buf[BUFSIZE];
 
 	if (ac != 3)
 	{
@@ -28,9 +30,6 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	buf = malloc(sizeof(char) * 1024);
-	if (!buf)
-		return (-1);
 
 	number = read(fd, buf, 1024);
 	if (write(fd2, buf, number) == -1 || fd2 == -1)
@@ -47,6 +46,5 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close(fd2));
 		exit(100);
 	}
-	free(buf);
 	return (0);
 }
