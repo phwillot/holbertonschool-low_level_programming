@@ -40,10 +40,10 @@ int main(int ac, char **av)
 	}
 	closed = close(fd);
 	if (closed == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close(fd)), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", closed), exit(100);
 	closed = close(fd2);
 	if (closed == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", close(fd2)), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", closed), exit(100);
 
 	return (0);
 }
