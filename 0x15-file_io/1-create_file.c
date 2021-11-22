@@ -23,7 +23,7 @@ int create_file(const char *filename, char *text_content)
 	while (text_content[i])
 		i++;
 
-	buf = malloc(sizeof(char) * (i + 1));
+	buf = malloc(sizeof(char) * i);
 	if (!buf)
 		return (-1);
 
