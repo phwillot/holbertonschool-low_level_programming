@@ -11,41 +11,33 @@ size_t sizeLinkedList(const dlistint_t *h);
 
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp = *head, *temp2 = *head;
+	dlistint_t *temp = *head, *last = *head;
 	unsigned int i = 0;
 
-	if (*head == NULL || index > sizeLinkedList(*head))
+	if (*head == NULL || index > sizeLinkedList(*head) || !head)
 		return (-1);
 
 	if (index == 0)
 	{
-		temp = temp->next;
-		(*head)->prev = NULL;
-		(*head)->next = NULL;
+		*head = (*head)->next;
+		temp->next = NULL;
+		temp->prev = NULL;
 		return (1);
 	}
-
-	while (i < (index - 1))
-	{
-		temp = temp->next;
-		i++;
-	}
-
-	temp->next = temp->next->next;
-	temp = *head;
-	i = 0;
 
 	while (i < index)
 	{
 		temp = temp->next;
 		i++;
 	}
-	if (temp)
+
+	i = 0;
+	while (i < (index - 1))
 	{
-		temp2 = temp->prev;
-		temp = temp->next;
-		temp->prev = temp2;
+		last = last->next;
+		i++;
 	}
+	last->next = temp->next;
 	return (1);
 }
 
