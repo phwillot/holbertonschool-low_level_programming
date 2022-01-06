@@ -13,8 +13,11 @@ size_t sizeLinkedList(const dlistint_t *h);
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new, *temp = *h;
+	dlistint_t *new, *temp;
 	unsigned int i = 0;
+
+	if (h == NULL || !*h)
+		return (NULL);
 
 	if (idx > sizeLinkedList(*h))
 		return (NULL);
@@ -23,6 +26,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (new == NULL)
 		return (NULL);
 
+	temp = *h;
 	new->n = n;
 	if (idx == 0)
 	{
