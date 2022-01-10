@@ -1,0 +1,7 @@
+*
+!*.*
+*.c
+*.o
+*.py
+.vscode/
+liball.so
