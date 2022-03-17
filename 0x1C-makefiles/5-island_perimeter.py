@@ -33,4 +33,8 @@ def island_perimeter(grid):
         for y in range(width):
             if grid[i][y] == 1:
                 allOnes.append([i, y])
-    return allOnes
+    
+    coordinates = []
+    coordinates.append(allOnes[-1][0] - allOnes[0][0])
+    coordinates.append(allOnes[-1][1] - allOnes[0][1])
+    return (coordinates[0] + 1) * 4
