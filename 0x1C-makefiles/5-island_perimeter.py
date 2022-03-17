@@ -27,14 +27,17 @@ def island_perimeter(grid):
             raise TypeError("Each row must be a sublist")
         elif len(element) != width:
             raise Exception("Grid must be a rectangle")
-    
+
     allOnes = []
     for i in range(len(grid)):
         for y in range(width):
             if grid[i][y] == 1:
                 allOnes.append([i, y])
-    
+
     coordinates = []
     coordinates.append(allOnes[-1][0] - allOnes[0][0])
     coordinates.append(allOnes[-1][1] - allOnes[0][1])
-    return (coordinates[0] + 1) * 4
+    if coordinates[0] == coordinates[1]:
+        return (coordinates[0] + 1) * 4
+    else:
+        return (coordinates[0] + 1) * 2 + (coordinates[1] + 1) * 2
