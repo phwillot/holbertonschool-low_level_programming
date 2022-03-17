@@ -2,3 +2,5 @@
 school
 *.c
 *.h
+*main.py
+__pycache__/
