@@ -34,10 +34,18 @@ def island_perimeter(grid):
             if grid[i][y] == 1:
                 allOnes.append([i, y])
 
+    if len(allOnes) == 1:
+        return 1
+
+    print(allOnes)
     coordinates = []
     coordinates.append(allOnes[-1][0] - allOnes[0][0])
     coordinates.append(allOnes[-1][1] - allOnes[0][1])
+    print(coordinates)
+
+    coordinates[0] += 1
+    coordinates[1] += 1
     if coordinates[0] == coordinates[1]:
-        return (coordinates[0] + 1) * 4
+        return coordinates[0] * 4
     else:
-        return (coordinates[0] + 1) * 2 + (coordinates[1] + 1) * 2
+        return coordinates[0] * 2 + coordinates[1] * 2
