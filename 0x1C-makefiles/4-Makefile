@@ -1,0 +1,19 @@
+CC=gcc
+SRC=main.c school.c
+OBJ=main.o school.o
+NAME=school
+RM=rm -f
+CFLAGS=-Wall -Werror -Wextra -pedantic
+
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+clean: #deletes all emacs and Vim temporary files along with the executable
+	$(RM) *~ $(NAME) 
+
+oclean: #deletes the object files
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: oclean all
