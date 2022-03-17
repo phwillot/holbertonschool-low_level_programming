@@ -16,34 +16,13 @@ def island_perimeter(grid):
     -The island doesn’t have “lakes” (water inside that isn’t
     connected to the water around the island).
     """
-    if type(grid) is not list or len(grid) <= 1:
-        raise TypeError("grid must be a list and len of the list >= 1")
-
-    width = len(grid[0])
-    if width == len(grid) or width <= 1:
-        raise Exception("Grid must be a rectangle or the width is too small")
-    for element in grid:
-        if type(element) is not list:
-            raise TypeError("Each row must be a sublist")
-        elif len(element) != width:
-            raise Exception("Grid must be a rectangle")
-
-    allOnes = []
+    perimeter = 0
     for i in range(len(grid)):
-        for y in range(width):
+        for y in range(len(grid[i])):
             if grid[i][y] == 1:
-                allOnes.append([i, y])
-
-    if len(allOnes) == 1:
-        return 1
-
-    coordinates = []
-    coordinates.append(allOnes[-1][0] - allOnes[0][0])
-    coordinates.append(allOnes[-1][1] - allOnes[0][1])
-
-    coordinates[0] += 1
-    coordinates[1] += 1
-    if coordinates[0] == coordinates[1]:
-        return coordinates[0] * 4
-    else:
-        return coordinates[0] * 2 + coordinates[1] * 2
+                perimeter += 4
+                if i > 0 and grid[i - 1][y]:
+                    perimeter -= 2
+                if y > 0 and grid[i][y - 1]:
+                    perimeter -= 2        
+    return perimeter
