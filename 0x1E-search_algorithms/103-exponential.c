@@ -26,8 +26,9 @@ int exponential_search(int *array, size_t size, int value)
 	divideByTwo = powerOfTwo / 2;
 	if (powerOfTwo >= size)
 		powerOfTwo -= 1;
-	printf("Value found between indexes [%ld] and [%ld]\n", divideByTwo, powerOfTwo);
-	return binary_search_recursion(array, divideByTwo, powerOfTwo, value);
+	printf("Value found between indexes [%ld] and [%ld]\n",
+	       divideByTwo, powerOfTwo);
+	return (binary_search_recursion(array, divideByTwo, powerOfTwo, value));
 }
 
 /**
