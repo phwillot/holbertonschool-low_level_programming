@@ -40,8 +40,6 @@ int binary_search_recursion(int *array, int l, int r, int value)
 	{
 		mid = l + (r - l) / 2;
 
-		printf("mid: %d\n", mid);
-
 		printf("Searching in array: ");
 		for (i = l; i <= r; i++)
 			if (i == r)
